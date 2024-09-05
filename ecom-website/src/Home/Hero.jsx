@@ -31,7 +31,7 @@ const Hero = () => {
   };
 
   return (
-    <div className="relative bg-gray-100 py-16 px-4 sm:px-6 md:px-8">
+    <div className="relative bg-gray-100 mt-16 py-16 px-4 sm:px-6 md:px-8">
       <div className="overflow-hidden">
         <img
           src={blob}
