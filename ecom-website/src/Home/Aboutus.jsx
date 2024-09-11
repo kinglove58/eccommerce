@@ -28,7 +28,7 @@ function Aboutus() {
   ];
 
   return (
-    <div className="bg-custom-image2 bg-cover bg-no-repeat bg-center px-8 py-16">
+    <div className="bg-custom-image2 bg-cover lg:bg-no-repeat px-8 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 justify-center items-center">
         {/* Left side - Statistics */}
         <div className="flex flex-col space-y-6 order-1 md:order-1">
@@ -59,7 +59,7 @@ function Aboutus() {
         </div>
 
         {/* Right side - Content */}
-        <div className="flex-1 lg:max-w-md ml-8 lg:ml-0 text-white p-8 relative order-2 md:order-2 lg:order-3">
+        <div className="flex-1 lg:max-w-md text-white p-8 relative order-2 md:order-2 lg:order-3">
           <h2 className="text-4xl font-bold mb-4">Become a Marchant</h2>
           <p className="text-lg mb-6">
             Take courses on your device with our app & learn all about business
