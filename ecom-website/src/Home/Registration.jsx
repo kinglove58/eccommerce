@@ -4,9 +4,9 @@ import * as Yup from "yup";
 function Registration() {
   return (
     <div className="overflow-hidden">
-      <section className="bg-custom-image bg-150 bg-center py-4 mt-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="text-white flex flex-col justify-center">
+      <section className="bg-custom-image text-center lg:text-left bg-cover lg:bg-no-repeat lg:bg-150 bg-center py-4 mt-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl lg:max-w-5xl py-8 mx-auto grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="text-white mt-4 flex flex-col justify-center">
             <p className="uppercase text-lg font-semibold mb-2">Save the day</p>
             <h2 className="text-3xl font-bold mb-4">
               Join a day-long free Workshop for Advanced{" "}
