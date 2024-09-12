@@ -120,8 +120,8 @@ const Footer = () => {
   return (
     <footer className="w-full text-white">
       <div className="bg-black w-full p-10">
-        <div className="flex flex-wrap justify-between gap-10">
-          <div className="flex-1 min-w-[200px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div>
             <h4 className="text-lg font-bold mb-2">{title}</h4>
             <p className="text-sm mb-4">{desc}</p>
             <ul className="list-none p-0">
@@ -134,7 +134,7 @@ const Footer = () => {
             </ul>
 
             <div className="mt-4">
-              <ul className="flex items-start gap-2 ">
+              <ul className="flex items-start gap-2">
                 {socialList.map((item, index) => (
                   <li key={index} className="list-none">
                     <a
@@ -149,7 +149,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="flex-1 min-w-[200px]">
+          <div>
             <h4 className="text-lg font-bold mb-2">{ItemTitle}</h4>
             <ul className="list-none p-0">
               {ItemList.map((item, index) => (
@@ -162,7 +162,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="flex-1 min-w-[200px]">
+          <div>
             <h4 className="text-lg font-bold mb-2">{quickTitle}</h4>
             <ul className="list-none p-0">
               {quickList.map((item, index) => (
@@ -175,7 +175,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="flex-1 min-w-[200px]">
+          <div>
             <h4 className="text-lg font-bold mb-2">{tweetTitle}</h4>
             {tweetList.map((tweet, index) => (
               <div key={index} className="text-sm mb-2">
@@ -187,11 +187,21 @@ const Footer = () => {
       </div>
 
       {/* footer bottom */}
-      <div className="bg-white text-black font-semibold w-full py-4">
-        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
+      <div className="bg-gray-800 w-full py-4">
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <p className="mb-2 md:mb-0">
-            &copy; 2023 <Link to="/">Shop Cart</Link>. Design by{" "}
-            <a href="https://www.linkedin.com/in/obafemi-elijah">webbizt</a>.
+            &copy; 2023{" "}
+            <Link to="/" className="text-white">
+              Shop Cart
+            </Link>
+            . Design by{" "}
+            <a
+              href="https://www.linkedin.com/in/obafemi-elijah"
+              className="text-white"
+            >
+              webbizt
+            </a>
+            .
           </p>
           <div className="flex space-x-4">
             {footerbottomList.map((item, i) => (
