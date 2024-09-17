@@ -7,6 +7,7 @@ export default {
         "custom-image": "url('/src/assets/images/bg-img/07.jpg')",
         "custom-image1": "url('/src/assets/images/bg-img/map.png')",
         "custom-image2": "url('/src/assets/images/bg-img/bg.jpg')",
+        "custom-image3": "url('/src/assets/images/bg-img/01.jpg')",
       },
       backgroundSize: {
         150: "122%",
