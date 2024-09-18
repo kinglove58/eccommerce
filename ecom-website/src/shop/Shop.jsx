@@ -6,6 +6,8 @@ import Data from "../Home/products.json";
 import ProductCard from "./ProductCard";
 import Search from "./Search";
 import Category from "./Category";
+import PopularPost from "./PopularPost";
+import PopularTag from "./PopularTag";
 
 function Shop() {
   const [gridList, setGridList] = useState(true);
@@ -43,11 +45,11 @@ function Shop() {
 
       {/* shop page */}
       <div className="container mx-auto py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12">
           <div className="lg:col-span-8 col-span-12">
             <article>
               {/* layout and title */}
-              <div className="flex justify-between items-center mb-6">
+              <div className="flex px-4 justify-between items-center mb-6">
                 <p>
                   Showing {currentProducts.length} of {products.length} Results
                 </p>
@@ -96,6 +98,8 @@ function Shop() {
             <aside>
               <Search products={products} gridList={gridList} />
               <Category products={Data} onCategoryClick={handleCategoryClick} />
+              <PopularPost />
+              <PopularTag />
             </aside>
           </div>
         </div>

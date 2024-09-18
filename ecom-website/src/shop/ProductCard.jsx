@@ -33,7 +33,7 @@ function ProductCard({ gridList, products }) {
           className={`relative group ${
             gridList
               ? "border p-4 rounded-lg bg-white shadow-md hover:scale-105"
-              : "flex items-center"
+              : "flex items-center p-4"
           }`}
         >
           <div className="relative overflow-hidden">

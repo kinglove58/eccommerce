@@ -24,7 +24,7 @@ function Category({ products, onCategoryClick }) {
             onClick={() => handleCategoryClick(cate)}
             className={`px-4 py-2 rounded ${
               activeCategory === cate
-                ? "bg-blue-500 text-white"
+                ? "bg-yellow-500 text-white"
                 : "bg-gray-200 text-gray-700"
             }`}
           >
