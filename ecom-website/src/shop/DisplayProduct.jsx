@@ -1,13 +1,12 @@
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useState } from "react";
 import { MdStarRate } from "react-icons/md";
-import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 import { Link } from "react-router-dom";
 
 function DisplayProduct({ item }) {
   const [qty, setQty] = useState(1);
-  const [selectColor, setSelectColor] = useState("selct Color");
-  const [selectSize, setSelectSize] = useState("select Size");
+  const [selectColor, setSelectColor] = useState("Select Color");
+  const [selectSize, setSelectSize] = useState("Select Size");
   const [coupon, setCoupon] = useState("");
 
   const handleSubmit = (e) => {
@@ -17,13 +16,24 @@ function DisplayProduct({ item }) {
       name: name,
       seller: seller,
       price: price,
-      img: img,
       size: selectSize,
       color: selectColor,
       qty: qty,
       coupon: coupon,
     };
-    console.log(product);
+
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingCartIndex = existingCart.findIndex((item) => item.id === id);
+    if (existingCartIndex !== -1) {
+      existingCart[existingCartIndex].qty += qty;
+    } else {
+      existingCart.push(product);
+    }
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+    setCoupon("");
+    setQty(1);
+    setSelectColor("Select Color");
+    setSelectSize("Select Size");
   };
 
   const handleIncrease = () => {
@@ -52,69 +62,105 @@ function DisplayProduct({ item }) {
     return stars;
   };
 
-  const { img, id, name, seller, price, ratings, description, ratingsCount } =
-    item;
+  const { id, name, seller, price, ratings, description, ratingsCount } = item;
+
+  // Calculate total price based on quantity
+  const totalPrice = "$" + price * qty;
 
   return (
-    <div>
+    <div className="container mx-auto p-4">
+      {/* Product Details */}
       <div>
-        <h1>{name}</h1>
-        <div>
+        <h1 className="text-3xl font-bold mb-4">{name}</h1>
+        <div className="flex items-center space-x-2 mb-4">
           {renderStars(ratings)}
-          <p>{ratingsCount} reviews</p>
+          <p className="text-gray-600">{ratingsCount} reviews</p>
         </div>
-        <p>{price}</p>
-        <p>{seller}</p>
-        <p>{description}</p>
-      </div>
+        <p className="text-2xl font-semibold text-gray-800 mb-2">
+          {totalPrice}
+        </p>
+        <p className="text-gray-600 mb-2">{seller}</p>
+        <p className="text-gray-600 mb-6">{description}</p>
 
-      <div>
-        <form onSubmit={handleSubmit}>
+        {/* Size and Color Select */}
+        <div className="grid grid-cols-2 gap-4 mb-4">
           <div>
-            <div>
-              <select
-                value={selectSize}
-                onChange={(e) => setSelectSize(e.target.value)}
-              >
-                <option>Select Size</option>
-                <option>SM</option>
-                <option>LG</option>
-                <option>XL</option>
-                <option>XLL</option>
-              </select>
-            </div>
-            <div>
-              <select
-                value={selectColor}
-                onChange={(e) => setSelectColor(e.target.value)}
-              >
-                <option>Select Color</option>
-                <option>Red</option>
-                <option>Blue</option>
-                <option>Green</option>
-                <option>Yellow</option>
-              </select>
-            </div>
+            <select
+              value={selectSize}
+              onChange={(e) => setSelectSize(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded-lg"
+            >
+              <option>Select Size</option>
+              <option>SM</option>
+              <option>LG</option>
+              <option>XL</option>
+              <option>XLL</option>
+            </select>
           </div>
           <div>
-            <div>
-              <div onClick={handleDecrease}>-</div>
-              <input
-                type="number"
-                value={qty}
-                onChange={(e) => setQty(e.target.value)}
-              />
-              <div onClick={handleIncrease}>+</div>
-            </div>
-            <div>
-              <input type="text" placeholder="Enter Coupon Code" />
-            </div>
+            <select
+              value={selectColor}
+              onChange={(e) => setSelectColor(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded-lg"
+            >
+              <option>Select Color</option>
+              <option>Red</option>
+              <option>Blue</option>
+              <option>Green</option>
+              <option>Yellow</option>
+            </select>
           </div>
-          <div>
-            <button>Add to Cart</button>
-            <Link to="/cart">Check Out</Link>
+        </div>
+
+        {/* Quantity and Coupon Input */}
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="flex items-center">
+            <button
+              type="button"
+              onClick={handleDecrease}
+              className="px-4 py-2 border border-gray-300 rounded-l-lg"
+            >
+              -
+            </button>
+            <input
+              type="number"
+              value={qty}
+              onChange={(e) => setQty(Number(e.target.value))}
+              className="w-16 text-center border-t border-b border-gray-300"
+            />
+            <button
+              type="button"
+              onClick={handleIncrease}
+              className="px-4 py-2 border border-gray-300 rounded-r-lg"
+            >
+              +
+            </button>
           </div>
-        </form>
+          <input
+            type="text"
+            placeholder="Enter Coupon Code"
+            value={coupon}
+            onChange={(e) => setCoupon(e.target.value)}
+            className="p-2 border border-gray-300 rounded-lg w-full"
+          />
+        </div>
+
+        {/* Add to Cart and Checkout Buttons */}
+        <div className="flex justify-between space-x-4 mt-6">
+          <button
+            type="submit"
+            className="bg-orange-500 text-white px-6 py-2 rounded-lg shadow-lg hover:scale-105 transition-all"
+            onClick={handleSubmit}
+          >
+            Add to Cart
+          </button>
+          <Link
+            to="/cart"
+            className="bg-blue-500 text-white px-6 py-2 rounded-lg shadow-lg hover:scale-105 transition-all"
+          >
+            Check Out
+          </Link>
+        </div>
       </div>
     </div>
   );
