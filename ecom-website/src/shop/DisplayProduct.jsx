@@ -1,5 +1,8 @@
+import { IoMdArrowDropdown } from "react-icons/io";
 import { useState } from "react";
 import { MdStarRate } from "react-icons/md";
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 function DisplayProduct({ item }) {
   const [qty, setQty] = useState(1);
@@ -41,8 +44,49 @@ function DisplayProduct({ item }) {
         <p>{seller}</p>
         <p>{description}</p>
       </div>
+
       <div>
-        <form onSubmit={handleSubmit}>{/* Form content here */}</form>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <div>
+              <select>
+                <option>Select Size</option>
+                <option>SM</option>
+                <option>LG</option>
+                <option>XL</option>
+                <option>XLL</option>
+              </select>
+            </div>
+            <div>
+              <select>
+                <option>Select Color</option>
+                <option>Red</option>
+                <option>Blue</option>
+                <option>Green</option>
+                <option>Yellow</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div>
+              <GrFormPrevious />
+
+              <input
+                type="number"
+                value={qty}
+                onChange={(e) => setQty(e.target.value)}
+              />
+              <GrFormNext />
+            </div>
+            <div>
+              <input type="text" placeholder="Enter Coupon Code" />
+            </div>
+          </div>
+          <div>
+            <button>Add to Cart</button>
+            <Link to="/cart">Check Out</Link>
+          </div>
+        </form>
       </div>
     </div>
   );
