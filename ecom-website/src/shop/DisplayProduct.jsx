@@ -6,12 +6,34 @@ import { Link } from "react-router-dom";
 
 function DisplayProduct({ item }) {
   const [qty, setQty] = useState(1);
-  const [selectColor, setSelectColor] = useState("");
-  const [selectSize, setSelectSize] = useState("");
+  const [selectColor, setSelectColor] = useState("selct Color");
+  const [selectSize, setSelectSize] = useState("select Size");
+  const [coupon, setCoupon] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Product added to cart");
+    const product = {
+      id: id,
+      name: name,
+      seller: seller,
+      price: price,
+      img: img,
+      size: selectSize,
+      color: selectColor,
+      qty: qty,
+      coupon: coupon,
+    };
+    console.log(product);
+  };
+
+  const handleIncrease = () => {
+    setQty(qty + 1);
+  };
+
+  const handleDecrease = () => {
+    if (qty > 1) {
+      setQty(qty - 1);
+    }
   };
 
   const renderStars = (rating) => {
@@ -30,7 +52,8 @@ function DisplayProduct({ item }) {
     return stars;
   };
 
-  const { name, seller, price, ratings, description, ratingsCount } = item;
+  const { img, id, name, seller, price, ratings, description, ratingsCount } =
+    item;
 
   return (
     <div>
@@ -49,7 +72,10 @@ function DisplayProduct({ item }) {
         <form onSubmit={handleSubmit}>
           <div>
             <div>
-              <select>
+              <select
+                value={selectSize}
+                onChange={(e) => setSelectSize(e.target.value)}
+              >
                 <option>Select Size</option>
                 <option>SM</option>
                 <option>LG</option>
@@ -58,7 +84,10 @@ function DisplayProduct({ item }) {
               </select>
             </div>
             <div>
-              <select>
+              <select
+                value={selectColor}
+                onChange={(e) => setSelectColor(e.target.value)}
+              >
                 <option>Select Color</option>
                 <option>Red</option>
                 <option>Blue</option>
@@ -69,14 +98,13 @@ function DisplayProduct({ item }) {
           </div>
           <div>
             <div>
-              <GrFormPrevious />
-
+              <div onClick={handleDecrease}>-</div>
               <input
                 type="number"
                 value={qty}
                 onChange={(e) => setQty(e.target.value)}
               />
-              <GrFormNext />
+              <div onClick={handleIncrease}>+</div>
             </div>
             <div>
               <input type="text" placeholder="Enter Coupon Code" />
