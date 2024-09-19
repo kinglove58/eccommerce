@@ -40,11 +40,11 @@ function Review() {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="flex justify-center mb-4">
+      <div className="flex justify-start items-center mb-4">
         <button
           className={`px-4 py-2 mx-2 ${
             activeSection === "description"
-              ? "bg-yellow-500 text-white"
+              ? "bg-orange-500 rounded-sm text-white"
               : "bg-gray-200"
           }`}
           onClick={() => setActiveSection("description")}
@@ -54,7 +54,7 @@ function Review() {
         <button
           className={`px-4 py-2 mx-2 ${
             activeSection === "review"
-              ? "bg-yellow-500 text-white"
+              ? "bg-orange-500 rounded-sm text-white"
               : "bg-gray-200"
           }`}
           onClick={() => setActiveSection("review")}
