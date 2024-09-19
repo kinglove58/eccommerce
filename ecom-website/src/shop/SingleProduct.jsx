@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import Slider from "react-slick";
 import DisplayProduct from "./DisplayProduct";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import Review from "./Review";
 
 const PrevArrow = (props) => {
   const { className, style, onClick } = props;
@@ -65,7 +66,7 @@ function SingleProduct() {
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-8 col-span-12">
               <article>
-                <div className="grid grid-cols-1 lg:grid-cols-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 mb-4">
                   {/* part 1 */}
                   <div className="col-span-12 lg:col-span-6">
                     <div>
@@ -93,6 +94,7 @@ function SingleProduct() {
                       ))}
                   </div>
                 </div>
+                <Review />
               </article>
             </div>
 
