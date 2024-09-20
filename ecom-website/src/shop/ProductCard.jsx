@@ -49,7 +49,7 @@ function ProductCard({ gridList, products }) {
               <a href="#" className="text-white">
                 <FaHeart size={24} />
               </a>
-              <Link to="/cart-page" className="text-white">
+              <Link to={`/shop/${item.id}`} className="text-white">
                 <FaCartArrowDown size={24} />
               </Link>
             </div>

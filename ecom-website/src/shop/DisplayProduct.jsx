@@ -4,7 +4,7 @@ import { MdStarRate } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 function DisplayProduct({ item }) {
-  const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState(item.quantity === 0 ? 1 : item.quantity);
   const [selectColor, setSelectColor] = useState("Select Color");
   const [selectSize, setSelectSize] = useState("Select Size");
   const [coupon, setCoupon] = useState("");
@@ -15,11 +15,12 @@ function DisplayProduct({ item }) {
       id: id,
       name: name,
       seller: seller,
-      price: price,
+      price: totalPriceOne,
       size: selectSize,
       color: selectColor,
       qty: qty,
       coupon: coupon,
+      img: item.img,
     };
 
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -62,10 +63,12 @@ function DisplayProduct({ item }) {
     return stars;
   };
 
-  const { id, name, seller, price, ratings, description, ratingsCount } = item;
+  const { id, name, seller, price, ratings, description, ratingsCount, img } =
+    item;
 
   // Calculate total price based on quantity
-  const totalPrice = "$" + price * qty;
+  const totalPriceOne = item.price * qty;
+  const totalPrice = "$" + totalPriceOne.toFixed(2);
 
   return (
     <div className="container mx-auto p-4">
