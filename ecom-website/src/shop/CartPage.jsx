@@ -46,7 +46,7 @@ function CartPage() {
   }, [selectedCountry]);
 
   const totalPrice = (item) => {
-    return item.price * item.quantity;
+    return item.price * item.qty;
   };
 
   const handleRemove = (item) => {
