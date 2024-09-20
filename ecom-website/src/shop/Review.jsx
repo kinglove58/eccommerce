@@ -72,16 +72,15 @@ function Review() {
               <ul className="items-center">
                 {ReviewList.map((item, i) => (
                   <li key={i} className="mb-4">
-                    <div className="flex items-start rounded-full">
-                      <div className="mr-4 w-10 h-10">
-                        <img
-                          src={item.imgUrl}
-                          alt={item.imgAlt}
-                          className="w-full h-full"
-                        />
-                      </div>
+                    <div className="flex items-center">
+                      <img
+                        src={item.imgUrl}
+                        alt={item.imgAlt}
+                        className="w-10 h-10 mr-4 object-cover rounded-full"
+                      />
+
                       <div>
-                        <div className="flex items-center mb-2">
+                        <div className="flex items-center">
                           <h3 className="font-bold mr-2">{item.name}</h3>
                           <p className="text-gray-500">{item.date}</p>
                         </div>
