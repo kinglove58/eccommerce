@@ -4,7 +4,7 @@ import Testimage from "../assets/images/about/03.jpg";
 
 function CheckOut() {
   const publicKey = "pk_test_0ab53993ba2093a72eef40df508a67dbfb658db3";
-  const amount = 1000000;
+  const amount = 100000;
 
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
