@@ -1,9 +1,9 @@
-import { MdDelete } from "react-icons/md";
+import { MdDelete, MdClose } from "react-icons/md";
 import { useEffect, useState } from "react";
 import PageHeader from "../components/PageHeader";
 import { Link } from "react-router-dom";
 import Select from "react-select";
-//import "react-select/dist/react-select.css";
+import CheckOut from "./CheckOut";
 
 function CartPage() {
   const [cartItem, setCartItem] = useState([]);
@@ -13,6 +13,7 @@ function CartPage() {
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedState, setSelectedState] = useState(null);
   const [selectedCity, setSelectedCity] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const storeCartItem = JSON.parse(localStorage.getItem("cart")) || [];
@@ -20,7 +21,6 @@ function CartPage() {
   }, []);
 
   useEffect(() => {
-    // Fetch countries from the CountriesNow API
     fetch("https://countriesnow.space/api/v0.1/countries/positions")
       .then((response) => response.json())
       .then((data) => {
@@ -37,7 +37,6 @@ function CartPage() {
 
   useEffect(() => {
     if (selectedCountry) {
-      // Fetch states (admin divisions) from the CountriesNow API based on the selected country
       fetch("https://countriesnow.space/api/v0.1/countries/states", {
         method: "POST",
         headers: {
@@ -68,7 +67,6 @@ function CartPage() {
 
   useEffect(() => {
     if (selectedState) {
-      // Fetch cities from the CountriesNow API based on the selected state
       fetch("https://countriesnow.space/api/v0.1/countries/state/cities", {
         method: "POST",
         headers: {
@@ -180,12 +178,12 @@ function CartPage() {
           >
             Update Cart
           </Link>
-          <Link
-            to="/checkout"
+          <button
             className="bg-green-500 text-white p-2 rounded-md hover:scale-105 transition-all"
+            onClick={() => setIsModalOpen(true)}
           >
-            Proceed to Checkout
-          </Link>
+            Check Out
+          </button>
         </div>
       </div>
 
@@ -250,6 +248,21 @@ function CartPage() {
           </div>
         </div>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="relative bg-white p-8 rounded-md shadow-lg w-full max-w-lg">
+            <button
+              className="absolute top-4 right-4 text-gray-500 hover:text-red-700"
+              onClick={() => setIsModalOpen(false)}
+            >
+              <MdClose size={24} />
+            </button>
+            <CheckOut />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
