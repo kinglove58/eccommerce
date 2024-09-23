@@ -163,23 +163,26 @@ function CartPage() {
 
       {/* Cart Actions */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
-        <div className="flex items-center bg-white rounded-sm border-2 max-w-md">
+        <div className="flex items-center justify-between bg-white rounded-sm border-2 max-w-md">
           <input
             type="text"
             placeholder="Coupon Code"
-            className="border-none outline-none w-full px-2 py-2"
+            className="border-none outline-none w-full px-2 py-2 text-black"
           />
           <button className="bg-orange-500 text-white py-2 px-4 rounded-r-md whitespace-nowrap">
             Apply Coupon
           </button>
         </div>
         <div className="flex justify-end items-center space-x-4">
-          <Link to="/shop" className="border p-2 rounded-md">
+          <Link
+            to="/shop"
+            className="border py-2 px-4 rounded-md bg-orange-500 hover:scale-105 transition-all"
+          >
             Update Cart
           </Link>
           <Link
             to="/checkout"
-            className="bg-blue-500 text-white p-2 rounded-md"
+            className="bg-green-500 text-white p-2 rounded-md hover:scale-105 transition-all"
           >
             Proceed to Checkout
           </Link>
@@ -192,35 +195,37 @@ function CartPage() {
         <div className="border p-4 rounded-md">
           <h2 className="font-bold mb-4">Calculate Shipping</h2>
 
-          <Select
-            options={countries}
-            onChange={(option) => setSelectedCountry(option)}
-            value={selectedCountry}
-            placeholder="Select Country"
-            className="border p-2 rounded w-full mb-4"
-          />
+          <div className="relative overflow-y-auto h-72">
+            <Select
+              options={countries}
+              onChange={(option) => setSelectedCountry(option)}
+              value={selectedCountry}
+              placeholder="Select Country"
+              className="border p-2 rounded w-full mb-4 text-black"
+            />
 
-          <Select
-            options={states}
-            onChange={(option) => setSelectedState(option)}
-            value={selectedState}
-            placeholder="Select State"
-            className="border p-2 rounded w-full mb-4"
-          />
+            <Select
+              options={states}
+              onChange={(option) => setSelectedState(option)}
+              value={selectedState}
+              placeholder="Select State"
+              className="border p-2 rounded w-full mb-4 text-black"
+            />
 
-          <Select
-            options={cities}
-            onChange={(option) => setSelectedCity(option)}
-            value={selectedCity}
-            placeholder="Select City"
-            className="border p-2 rounded w-full mb-4"
-          />
+            <Select
+              options={cities}
+              onChange={(option) => setSelectedCity(option)}
+              value={selectedCity}
+              placeholder="Select City"
+              className="border p-2 rounded w-full mb-4 text-black"
+            />
 
-          <input
-            type="text"
-            placeholder="Postal Code"
-            className="border p-2 rounded w-full mb-4"
-          />
+            <input
+              type="text"
+              placeholder="Postal Code"
+              className="border p-2 rounded w-full"
+            />
+          </div>
           <button className="bg-orange-500 text-white p-2 rounded w-full">
             Update Total
           </button>

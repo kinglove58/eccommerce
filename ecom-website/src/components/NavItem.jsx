@@ -24,7 +24,7 @@ function NavItem() {
     <header
       className={`fixed -top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white bg-opacity-20 backdrop-blur-md"
+          ? "bg-white bg-opacity-50 backdrop-blur-md"
           : "bg-transparent"
       }`}
     >
@@ -61,14 +61,14 @@ function NavItem() {
           <div className="flex flex-col md:flex-row md:space-x-4 mt-4 md:mt-0 w-full md:w-auto md:ml-5">
             <Link
               to="/signup"
-              className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 text-center mb-2 md:mb-0 "
+              className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 text-center mb-2 md:mb-0 "
               onClick={() => setIsOpen(false)}
             >
               Create Account
             </Link>
             <Link
               to="/login"
-              className="border border-gray-800 text-gray-800 px-4 py-2 rounded hover:bg-gray-100 text-center"
+              className="border border-gray-800 text-gray-800 px-4 py-2 rounded hover:bg-gray-200 hover:scale-105 text-center"
               onClick={() => setIsOpen(false)}
             >
               Log in
