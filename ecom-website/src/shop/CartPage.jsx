@@ -2,36 +2,57 @@ import { MdDelete } from "react-icons/md";
 import { useEffect, useState } from "react";
 import PageHeader from "../components/PageHeader";
 import { Link } from "react-router-dom";
+import Select from "react-select";
+//import "react-select/dist/react-select.css";
 
 function CartPage() {
   const [cartItem, setCartItem] = useState([]);
   const [countries, setCountries] = useState([]);
   const [states, setStates] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState("");
+  const [cities, setCities] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedState, setSelectedState] = useState(null);
+  const [selectedCity, setSelectedCity] = useState(null);
 
   useEffect(() => {
     const storeCartItem = JSON.parse(localStorage.getItem("cart")) || [];
     setCartItem(storeCartItem);
   }, []);
-  console.log("here is caritem", cartItem);
 
   useEffect(() => {
-    // Fetch countries from an API
-    fetch("https://restcountries.com/v3.1/all")
+    // Fetch countries from the CountriesNow API
+    fetch("https://countriesnow.space/api/v0.1/countries/positions")
       .then((response) => response.json())
       .then((data) => {
-        const countryNames = data.map((country) => country.name.common);
+        const countryNames = data.data.map((country) => ({
+          label: country.name,
+          value: country.name,
+        }));
         setCountries(countryNames);
+      })
+      .catch((error) => {
+        console.error("Failed to fetch countries", error);
       });
   }, []);
 
   useEffect(() => {
     if (selectedCountry) {
-      fetch(`https://restcountries.com/states?country=${selectedCountry}`)
+      // Fetch states (admin divisions) from the CountriesNow API based on the selected country
+      fetch("https://countriesnow.space/api/v0.1/countries/states", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ country: selectedCountry.value }),
+      })
         .then((response) => response.json())
         .then((data) => {
-          if (Array.isArray(data)) {
-            setStates(data);
+          if (data.data.states) {
+            const stateNames = data.data.states.map((state) => ({
+              label: state.name,
+              value: state.name,
+            }));
+            setStates(stateNames);
           } else {
             setStates([]);
           }
@@ -44,6 +65,40 @@ function CartPage() {
       setStates([]);
     }
   }, [selectedCountry]);
+
+  useEffect(() => {
+    if (selectedState) {
+      // Fetch cities from the CountriesNow API based on the selected state
+      fetch("https://countriesnow.space/api/v0.1/countries/state/cities", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          country: selectedCountry.value,
+          state: selectedState.value,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.data) {
+            const cityNames = data.data.map((city) => ({
+              label: city,
+              value: city,
+            }));
+            setCities(cityNames);
+          } else {
+            setCities([]);
+          }
+        })
+        .catch((error) => {
+          console.error("Failed to fetch cities", error);
+          setCities([]);
+        });
+    } else {
+      setCities([]);
+    }
+  }, [selectedState]);
 
   const totalPrice = (item) => {
     return item.price * item.qty;
@@ -136,27 +191,31 @@ function CartPage() {
         {/* Calculate Shipping */}
         <div className="border p-4 rounded-md">
           <h2 className="font-bold mb-4">Calculate Shipping</h2>
-          <select
-            id="country"
+
+          <Select
+            options={countries}
+            onChange={(option) => setSelectedCountry(option)}
             value={selectedCountry}
-            onChange={(e) => setSelectedCountry(e.target.value)}
+            placeholder="Select Country"
             className="border p-2 rounded w-full mb-4"
-          >
-            <option value="">Select Country</option>
-            {countries.map((country, index) => (
-              <option key={index} value={country}>
-                {country}
-              </option>
-            ))}
-          </select>
-          <select id="state" className="border p-2 rounded w-full mb-4">
-            <option value="">Select State</option>
-            {states.map((state, index) => (
-              <option key={index} value={state}>
-                {state}
-              </option>
-            ))}
-          </select>
+          />
+
+          <Select
+            options={states}
+            onChange={(option) => setSelectedState(option)}
+            value={selectedState}
+            placeholder="Select State"
+            className="border p-2 rounded w-full mb-4"
+          />
+
+          <Select
+            options={cities}
+            onChange={(option) => setSelectedCity(option)}
+            value={selectedCity}
+            placeholder="Select City"
+            className="border p-2 rounded w-full mb-4"
+          />
+
           <input
             type="text"
             placeholder="Postal Code"
