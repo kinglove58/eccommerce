@@ -10,6 +10,7 @@ import ContactUs from "./contactus/ContactUs.jsx";
 import About from "./about/About.jsx";
 import SingleProduct from "./shop/SingleProduct.jsx";
 import CartPage from "./shop/CartPage.jsx";
+import SingleBlog from "./blog/SingleBlog.jsx"; // Import SingleBlog component
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/blog/:id",
+        element: <SingleBlog />, // Use SingleBlog component for blog/:id route
       },
       {
         path: "/shop",

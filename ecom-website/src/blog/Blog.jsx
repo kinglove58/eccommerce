@@ -2,6 +2,7 @@ import PageHeader from "../components/PageHeader";
 import blogList from "../utilis/blogdata";
 import { FaUser, FaCalendarAlt } from "react-icons/fa";
 import { IoMdOpen } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const iconMap = {
   FaUser: FaUser,
@@ -18,15 +19,22 @@ function Blog() {
         {blogList.map((blog, i) => (
           <div
             key={i}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
+            className="bg-white rounded-lg shadow-md overflow-hidden hover:scale-105"
           >
-            <img
-              src={blog.imgUrl}
-              alt={blog.imgAlt}
-              className="w-full h-48 object-cover"
-            />
+            <Link to={`/blog/${blog.id}`}>
+              <img
+                src={blog.imgUrl}
+                alt={blog.imgAlt}
+                className="w-full h-48 object-cover"
+              />
+            </Link>
+
             <div className="p-4">
-              <h1 className="text-xl font-bold mb-2">{blog.title}</h1>
+              <Link to={`/blog/${blog.id}`}>
+                <h1 className="text-xl font-bold mb-2 hover:text-orange-600">
+                  {blog.title}
+                </h1>
+              </Link>
               <div className="flex items-center space-x-4 mb-4">
                 {blog.metaList.map((meta, i) => {
                   const IconComponent = iconMap[meta.icon];
@@ -44,7 +52,11 @@ function Blog() {
               <p className="text-gray-700 mb-4">{blog.desc}</p>
               <div className="flex items-center justify-between">
                 <button className="flex items-center space-x-1 text-orange-500 hover:text-orange-600">
-                  <span>{blog.btnText}</span>
+                  <Link to={`/blog/${blog.id}`}>
+                    <span className="hover:text-orange-600">
+                      {blog.btnText}
+                    </span>
+                  </Link>
                   <IoMdOpen />
                 </button>
                 <p className="text-gray-600">{blog.commentCount} comments</p>
