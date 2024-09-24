@@ -1,174 +1,195 @@
-const blogList = [
-    {   id: 1,
-        imgUrl: '/src/assets/images/blog/01.jpg',
-        imgAlt: 'Blog Thumb',
-        title: 'Business Ueporting Rouncil Them Could Plan.',
-        desc: 'Pluoresnts customize prancing apcentered customer service anding ands asing straelg Interacvely cordinate performe',
-        commentCount: '3',
-        btnText: 'Read More',
-        metaList: [
-            {
-                iconName: 'icofont-ui-user',
-                text: 'Rajib Raj',
-            },
-            {
-                iconName: 'icofont-calendar',
-                text: 'Jun 05,2022',
-            },
-        ],
-    },
-    {
-        id: 2,
-        imgUrl: '/src/assets/images/blog/02.jpg',
-        imgAlt: 'Blog Thumb',
-        title: 'Financial Reporting Qouncil What Could More.',
-        desc: 'Pluoresnts customize prancing apcentered customer service anding ands asing straelg Interacvely cordinate performe',
-        commentCount: '3',
-        btnText: 'Read More',
-        metaList: [
-            {
-                iconName: 'icofont-ui-user',
-                text: 'Rajib Raj',
-            },
-            {
-                iconName: 'icofont-calendar',
-                text: 'Jun 05,2022',
-            },
-        ],
-    },
-    {
-        id: 3,
-        imgUrl: '/src/assets/images/blog/03.jpg',
-        imgAlt: 'Blog Thumb',
-        title: 'Consulting Reporting Qounc Arei Could More.',
-        desc: 'Pluoresnts customize prancing apcentered customer service anding ands asing straelg Interacvely cordinate performe',
-        commentCount: '3',
-        btnText: 'Read More',
-        metaList: [
-            {
-                iconName: 'icofont-ui-user',
-                text: 'Rajib Raj',
-            },
-            {
-                iconName: 'icofont-calendar',
-                text: 'Jun 05,2022',
-            },
-        ],
-    },
-    {
-        id: 4,
-        imgUrl: '/src/assets/images/blog/04.jpg',
-        imgAlt: 'Blog Thumb',
-        title: 'Strategic Social Media and of visual design.',
-        desc: 'Pluoresnts customize prancing apcentered customer service anding ands asing straelg Interacvely cordinate performe',
-        commentCount: '3',
-        btnText: 'Read More',
-        metaList: [
-            {
-                iconName: 'icofont-ui-user',
-                text: 'Rajib Raj',
-            },
-            {
-                iconName: 'icofont-calendar',
-                text: 'Jun 05,2022',
-            },
-        ],
-    },
-    {
-        id: 5,
-        imgUrl: '/src/assets/images/blog/05.jpg',
-        imgAlt: 'Blog Thumb',
-        title: 'Find the Right Path for your Group Course online.',
-        desc: 'Pluoresnts customize prancing apcentered customer service anding ands asing straelg Interacvely cordinate performe',
-        commentCount: '3',
-        btnText: 'Read More',
-        metaList: [
-            {
-                iconName: 'icofont-ui-user',
-                text: 'Rajib Raj',
-            },
-            {
-                iconName: 'icofont-calendar',
-                text: 'Jun 05,2022',
-            },
-        ],
-    },
-    {
-        id: 6,
-        imgUrl: '/src/assets/images/blog/06.jpg',
-        imgAlt: 'Blog Thumb',
-        title: 'Learn by doing with Real World Projects other countries.',
-        desc: 'Pluoresnts customize prancing apcentered customer service anding ands asing straelg Interacvely cordinate performe',
-        commentCount: '3',
-        btnText: 'Read More',
-        metaList: [
-            {
-                iconName: 'icofont-ui-user',
-                text: 'Rajib Raj',
-            },
-            {
-                iconName: 'icofont-calendar',
-                text: 'Jun 05,2022',
-            },
-        ],
-    },
-    {
-        id: 7,
-        imgUrl: '/src/assets/images/blog/07.jpg',
-        imgAlt: 'Blog Thumb',
-        title: 'The Importance Of Intrinsic for Students.',
-        desc: 'Pluoresnts customize prancing apcentered customer service anding ands asing straelg Interacvely cordinate performe',
-        commentCount: '3',
-        btnText: 'Read More',
-        metaList: [
-            {
-                iconName: 'icofont-ui-user',
-                text: 'Rajib Raj',
-            },
-            {
-                iconName: 'icofont-calendar',
-                text: 'Jun 05,2022',
-            },
-        ],
-    },
-    {
-        id: 8,
-        imgUrl: '/src/assets/images/blog/08.jpg',
-        imgAlt: 'Blog Thumb',
-        title: 'A Better Alternative To Grading Student Writing.',
-        desc: 'Pluoresnts customize prancing apcentered customer service anding ands asing straelg Interacvely cordinate performe',
-        commentCount: '3',
-        btnText: 'Read More',
-        metaList: [
-            {
-                iconName: 'icofont-ui-user',
-                text: 'Rajib Raj',
-            },
-            {
-                iconName: 'icofont-calendar',
-                text: 'Jun 05,2022',
-            },
-        ],
-    },
-    {
-        id: 9,
-        imgUrl: '/src/assets/images/blog/09.jpg',
-        imgAlt: 'Blog Thumb',
-        title: 'The Challenge Global Learning In Public Education.',
-        desc: 'Pluoresnts customize prancing apcentered customer service anding ands asing straelg Interacvely cordinate performe',
-        commentCount: '3',
-        btnText: 'Read More',
-        metaList: [
-            {
-                iconName: 'icofont-ui-user',
-                text: 'Rajib Raj',
-            },
-            {
-                iconName: 'icofont-calendar',
-                text: 'Jun 05,2022',
-            },
-        ],
-    },
-]
+import { FaUser, FaCalendarAlt } from "react-icons/fa";
+import image1 from "../assets/images/blog/01.jpg";
+import image2 from "../assets/images/blog/02.jpg";
+import image3 from "../assets/images/blog/03.jpg";
+import image4 from "../assets/images/blog/04.jpg";
+import image5 from "../assets/images/blog/05.jpg";
+import image6 from "../assets/images/blog/06.jpg";
+import image7 from "../assets/images/blog/07.jpg";
+import image8 from "../assets/images/blog/08.jpg";
+import image9 from "../assets/images/blog/09.jpg";
 
-export default blogList
+const blogList = [
+  {
+    id: 1,
+    imgUrl: image1,
+    imgAlt: "Blog Thumb",
+    title: "Business Reporting Council Theme Could Plan.",
+    desc: "Fluorescents customize prancing apcentered customer service anding and asing strategy. Interactively coordinate performance.",
+    commentCount: 3,
+    btnText: "Read More",
+    btnIcon: "IoMdOpen",
+    metaList: [
+      {
+        icon: "FaUser",
+        text: "Rajib Raj",
+      },
+      {
+        icon: "FaCalendarAlt",
+        text: "Jun 05, 2022",
+      },
+    ],
+  },
+  {
+    id: 2,
+    imgUrl: image2,
+    imgAlt: "Blog Thumb",
+    title: "Financial Reporting Council What Could More.",
+    desc: "Fluorescents customize prancing apcentered customer service anding and asing strategy. Interactively coordinate performance.",
+    commentCount: 3,
+    btnText: "Read More",
+    btnIcon: "IoMdOpen",
+    metaList: [
+      {
+        icon: "FaUser",
+        text: "Rajib Raj",
+      },
+      {
+        icon: "FaCalendarAlt",
+        text: "Jun 05, 2022",
+      },
+    ],
+  },
+  {
+    id: 3,
+    imgUrl: image3,
+    imgAlt: "Blog Thumb",
+    title: "Consulting Reporting Council Could More.",
+    desc: "Fluorescents customize prancing apcentered customer service anding and asing strategy. Interactively coordinate performance.",
+    commentCount: 3,
+    btnText: "Read More",
+    btnIcon: "IoMdOpen",
+    metaList: [
+      {
+        icon: "FaUser",
+        text: "Rajib Raj",
+      },
+      {
+        icon: "FaCalendarAlt",
+        text: "Jun 05, 2022",
+      },
+    ],
+  },
+  {
+    id: 4,
+    imgUrl: image4,
+    imgAlt: "Blog Thumb",
+    title: "Strategic Social Media and Visual Design.",
+    desc: "Fluorescents customize prancing apcentered customer service anding and asing strategy. Interactively coordinate performance.",
+    commentCount: 3,
+    btnText: "Read More",
+    btnIcon: "IoMdOpen",
+    metaList: [
+      {
+        icon: "FaUser",
+        text: "Rajib Raj",
+      },
+      {
+        icon: "FaCalendarAlt",
+        text: "Jun 05, 2022",
+      },
+    ],
+  },
+  {
+    id: 5,
+    imgUrl: image5,
+    imgAlt: "Blog Thumb",
+    title: "Find the Right Path for Your Group Course Online.",
+    desc: "Fluorescents customize prancing apcentered customer service anding and asing strategy. Interactively coordinate performance.",
+    commentCount: 3,
+    btnText: "Read More",
+    btnIcon: "IoMdOpen",
+    metaList: [
+      {
+        icon: "FaUser",
+        text: "Rajib Raj",
+      },
+      {
+        icon: "FaCalendarAlt",
+        text: "Jun 05, 2022",
+      },
+    ],
+  },
+  {
+    id: 6,
+    imgUrl: image6,
+    imgAlt: "Blog Thumb",
+    title: "Learn by Doing with Real World Projects.",
+    desc: "Fluorescents customize prancing apcentered customer service anding and asing strategy. Interactively coordinate performance.",
+    commentCount: 3,
+    btnText: "Read More",
+    btnIcon: "IoMdOpen",
+    metaList: [
+      {
+        icon: "FaUser",
+        text: "Rajib Raj",
+      },
+      {
+        icon: "FaCalendarAlt",
+        text: "Jun 05, 2022",
+      },
+    ],
+  },
+  {
+    id: 7,
+    imgUrl: image7,
+    imgAlt: "Blog Thumb",
+    title: "The Importance of Intrinsic Motivation for Students.",
+    desc: "Fluorescents customize prancing apcentered customer service anding and asing strategy. Interactively coordinate performance.",
+    commentCount: 3,
+    btnText: "Read More",
+    btnIcon: "IoMdOpen",
+    metaList: [
+      {
+        icon: "FaUser",
+        text: "Rajib Raj",
+      },
+      {
+        icon: "FaCalendarAlt",
+        text: "Jun 05, 2022",
+      },
+    ],
+  },
+  {
+    id: 8,
+    imgUrl: image8,
+    imgAlt: "Blog Thumb",
+    title: "A Better Alternative to Grading Student Writing.",
+    desc: "Fluorescents customize prancing apcentered customer service anding and asing strategy. Interactively coordinate performance.",
+    commentCount: 3,
+    btnText: "Read More",
+    btnIcon: "IoMdOpen",
+    metaList: [
+      {
+        icon: "FaUser",
+        text: "Rajib Raj",
+      },
+      {
+        icon: "FaCalendarAlt",
+        text: "Jun 05, 2022",
+      },
+    ],
+  },
+  {
+    id: 9,
+    imgUrl: image9,
+    imgAlt: "Blog Thumb",
+    title: "The Challenge of Global Learning in Public Education.",
+    desc: "Fluorescents customize prancing apcentered customer service anding and asing strategy. Interactively coordinate performance.",
+    commentCount: 3,
+    btnText: "Read More",
+    btnIcon: "IoMdOpen",
+    metaList: [
+      {
+        icon: "FaUser",
+        text: "Rajib Raj",
+      },
+      {
+        icon: "FaCalendarAlt",
+        text: "Jun 05, 2022",
+      },
+    ],
+  },
+];
+
+export default blogList;

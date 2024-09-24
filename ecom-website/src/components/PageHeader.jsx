@@ -15,7 +15,10 @@ function PageHeader({ title, curentPage }) {
               </Link>
             </li>
             <li>
-              <Link to="/shop" className="hover:underline">
+              <Link
+                to={`/${curentPage.toLowerCase()}`}
+                className="hover:underline"
+              >
                 {curentPage}
               </Link>
             </li>
