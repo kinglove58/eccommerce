@@ -362,9 +362,7 @@ imgUrl: "/src/assets/images/sponsor/06.png",
 },
 ];
 
-
-**/__ Footer __/**
-
+**/** Footer **/**
 
 const title = "About ShopCart";
 const desc = "Eduaid theme number one world class university in the world There are student are studing always in this university for all time.";
@@ -373,130 +371,130 @@ const quickTitle = "Quick Links";
 const tweetTitle = "Recent Tweets";
 
 const addressList = [
-    {
-        iconName: 'icofont-google-map',
-        text: 'New York, USA.',
-    },
-    {
-        iconName: 'icofont-phone',
-        text: '+880 123 456 789',
-    },
-    {
-        iconName: 'icofont-envelope',
-        text: 'info@shopcart.com',
-    },
+{
+iconName: 'icofont-google-map',
+text: 'New York, USA.',
+},
+{
+iconName: 'icofont-phone',
+text: '+880 123 456 789',
+},
+{
+iconName: 'icofont-envelope',
+text: 'info@shopcart.com',
+},
 ]
 
 const socialList = [
-    {
-        iconName: 'icofont-facebook',
-        siteLink: '#',
-        className: 'facebook',
-    },
-    {
-        iconName: 'icofont-twitter',
-        siteLink: '#',
-        className: 'twitter',
-    },
-    {
-        iconName: 'icofont-linkedin',
-        siteLink: '#',
-        className: 'linkedin',
-    },
-    {
-        iconName: 'icofont-instagram',
-        siteLink: '#',
-        className: 'instagram',
-    },
-    {
-        iconName: 'icofont-pinterest',
-        siteLink: '#',
-        className: 'pinterest',
-    },
+{
+iconName: 'icofont-facebook',
+siteLink: '#',
+className: 'facebook',
+},
+{
+iconName: 'icofont-twitter',
+siteLink: '#',
+className: 'twitter',
+},
+{
+iconName: 'icofont-linkedin',
+siteLink: '#',
+className: 'linkedin',
+},
+{
+iconName: 'icofont-instagram',
+siteLink: '#',
+className: 'instagram',
+},
+{
+iconName: 'icofont-pinterest',
+siteLink: '#',
+className: 'pinterest',
+},
 ]
 
 const ItemList = [
-    {
-        text: 'All Products',
-        link: '/shop',
-    },
-    {
-        text: 'Shop',
-        link: '/shop',
-    },
-    {
-        text: 'Blog',
-        link: '/blog',
-    },
-    {
-        text: 'About',
-        link: '/about',
-    },
-    {
-        text: 'Policy',
-        link: '#',
-    },
-    {
-        text: 'FAQs',
-        link: '/about',
-    }
+{
+text: 'All Products',
+link: '/shop',
+},
+{
+text: 'Shop',
+link: '/shop',
+},
+{
+text: 'Blog',
+link: '/blog',
+},
+{
+text: 'About',
+link: '/about',
+},
+{
+text: 'Policy',
+link: '#',
+},
+{
+text: 'FAQs',
+link: '/about',
+}
 ]
 
 const quickList = [
-    {
-        text: 'Summer Sessions',
-        link: '#',
-    },
-    {
-        text: 'Events',
-        link: '#',
-    },
-    {
-        text: 'Gallery',
-        link: '#',
-    },
-    {
-        text: 'Forums',
-        link: '#',
-    },
-    {
-        text: 'Privacy Policy',
-        link: '#',
-    },
-    {
-        text: 'Terms of Use',
-        link: '#',
-    },
+{
+text: 'Summer Sessions',
+link: '#',
+},
+{
+text: 'Events',
+link: '#',
+},
+{
+text: 'Gallery',
+link: '#',
+},
+{
+text: 'Forums',
+link: '#',
+},
+{
+text: 'Privacy Policy',
+link: '#',
+},
+{
+text: 'Terms of Use',
+link: '#',
+},
 ]
 
 const tweetList = [
-    {
-        iconName: 'icofont-twitter',
-        desc: <p>Aminur islam <a href="#">@ShopCart Greetings!  #HTML_Template</a> Grab your item, 50% Big Sale Offer !!</p>,
-    },
-    {
-        iconName: 'icofont-twitter',
-        desc: <p>Somrat islam <a href="#">@ShopCart Hey! #HTML_Template</a> Grab your item, 50% Big Sale Offer !!</p>,
-    },
+{
+iconName: 'icofont-twitter',
+desc: <p>Aminur islam <a href="#">@ShopCart Greetings! #HTML_Template</a> Grab your item, 50% Big Sale Offer !!</p>,
+},
+{
+iconName: 'icofont-twitter',
+desc: <p>Somrat islam <a href="#">@ShopCart Hey! #HTML_Template</a> Grab your item, 50% Big Sale Offer !!</p>,
+},
 ]
 
 const footerbottomList = [
-    {
-        text: 'Faculty',
-        link: '#',
-    },
-    {
-        text: 'Staff',
-        link: '#',
-    },
-    {
-        text: 'Students',
-        link: '#',
-    },
-    {
-        text: 'Alumni',
-        link: '#',
-    },
+{
+text: 'Faculty',
+link: '#',
+},
+{
+text: 'Staff',
+link: '#',
+},
+{
+text: 'Students',
+link: '#',
+},
+{
+text: 'Alumni',
+link: '#',
+},
 ]
 
 ## 3. All Texts for Shop Page
@@ -580,161 +578,161 @@ text: "codecanyon",
 },
 ];
 
-**/__ Review List __/**
+**/** Review List **/**
 const reviwtitle = "Add a Review";
 
 let ReviewList = [
-    {
-      imgUrl: "/src/assets/images/instructor/01.jpg",
-      imgAlt: "Client thumb",
-      name: "Ganelon Boileau",
-      date: "Posted on Jun 10, 2022 at 6:57 am",
-      desc: "Enthusiast build innovativ initiatives before lonterm high-impact awesome theme seo psd porta monetize covalent leadership after without resource.",
-    },
-    {
-      imgUrl: "/src/assets/images/instructor/02.jpg",
-      imgAlt: "Client thumb",
-      name: "Morgana Cailot",
-      date: "Posted on Jun 10, 2022 at 6:57 am",
-      desc: "Enthusiast build innovativ initiatives before lonterm high-impact awesome theme seo psd porta monetize covalent leadership after without resource.",
-    },
-    {
-      imgUrl: "/src/assets/images/instructor/03.jpg",
-      imgAlt: "Client thumb",
-      name: "Telford Bois",
-      date: "Posted on Jun 10, 2022 at 6:57 am",
-      desc: "Enthusiast build innovativ initiatives before lonterm high-impact awesome theme seo psd porta monetize covalent leadership after without resource.",
-    },
-    {
-      imgUrl: "/src/assets/images/instructor/04.jpg",
-      imgAlt: "Client thumb",
-      name: "Cher Daviau",
-      date: "Posted on Jun 10, 2022 at 6:57 am",
-      desc: "Enthusiast build innovativ initiatives before lonterm high-impact awesome theme seo psd porta monetize covalent leadership after without resource.",
-    },
-  ];
+{
+imgUrl: "/src/assets/images/instructor/01.jpg",
+imgAlt: "Client thumb",
+name: "Ganelon Boileau",
+date: "Posted on Jun 10, 2022 at 6:57 am",
+desc: "Enthusiast build innovativ initiatives before lonterm high-impact awesome theme seo psd porta monetize covalent leadership after without resource.",
+},
+{
+imgUrl: "/src/assets/images/instructor/02.jpg",
+imgAlt: "Client thumb",
+name: "Morgana Cailot",
+date: "Posted on Jun 10, 2022 at 6:57 am",
+desc: "Enthusiast build innovativ initiatives before lonterm high-impact awesome theme seo psd porta monetize covalent leadership after without resource.",
+},
+{
+imgUrl: "/src/assets/images/instructor/03.jpg",
+imgAlt: "Client thumb",
+name: "Telford Bois",
+date: "Posted on Jun 10, 2022 at 6:57 am",
+desc: "Enthusiast build innovativ initiatives before lonterm high-impact awesome theme seo psd porta monetize covalent leadership after without resource.",
+},
+{
+imgUrl: "/src/assets/images/instructor/04.jpg",
+imgAlt: "Client thumb",
+name: "Cher Daviau",
+date: "Posted on Jun 10, 2022 at 6:57 am",
+desc: "Enthusiast build innovativ initiatives before lonterm high-impact awesome theme seo psd porta monetize covalent leadership after without resource.",
+},
+];
 
-  ## Modal CSS
-  
-  .modalCard {
-    /* height: 100vh; */
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    background-color: #fff;
+## Modal CSS
+
+.modalCard {
+/_ height: 100vh; _/
+justify-content: center;
+align-items: center;
+display: flex;
+background-color: #fff;
 }
 
 .launch {
-    height: 50px
+height: 50px
 }
 
 .close {
-    font-size: 21px;
-    cursor: pointer
+font-size: 21px;
+cursor: pointer
 }
 
 .modal-body {
-    height: 450px
+height: 450px
 }
 
 .nav-tabs {
-    border: none !important
+border: none !important
 }
 
 .nav-tabs .nav-link.active {
-    color: #495057;
-    background-color: #fff;
-    border-color: #ffffff #ffffff #fff;
-    border-top: 3px solid blue !important
+color: #495057;
+background-color: #fff;
+border-color: #ffffff #ffffff #fff;
+border-top: 3px solid blue !important
 }
 
 .nav-tabs .nav-link {
-    margin-bottom: -1px;
-    border: 1px solid transparent;
-    border-top-left-radius: 0rem;
-    border-top-right-radius: 0rem;
-    border-top: 3px solid #eee;
-    font-size: 20px
+margin-bottom: -1px;
+border: 1px solid transparent;
+border-top-left-radius: 0rem;
+border-top-right-radius: 0rem;
+border-top: 3px solid #eee;
+font-size: 20px
 }
 
 .nav-tabs .nav-link:hover {
-    border-color: #e9ecef #ffffff #ffffff
+border-color: #e9ecef #ffffff #ffffff
 }
 
 .nav-tabs {
-    display: table !important;
-    width: 100%
+display: table !important;
+width: 100%
 }
 
 .nav-item {
-    display: table-cell
+display: table-cell
 }
 
 .form-control {
-    border-bottom: 1px solid #eee !important;
-    border: none;
-    font-weight: 600
+border-bottom: 1px solid #eee !important;
+border: none;
+font-weight: 600
 }
 
 .form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #8bbafe;
-    outline: 0;
-    box-shadow: none
+color: #495057;
+background-color: #fff;
+border-color: #8bbafe;
+outline: 0;
+box-shadow: none
 }
 
 .inputbox {
-    position: relative;
-    margin-bottom: 20px;
-    width: 100%
+position: relative;
+margin-bottom: 20px;
+width: 100%
 }
 
 .inputbox span {
-    position: absolute;
-    top: 7px;
-    left: 11px;
-    transition: 0.5s
+position: absolute;
+top: 7px;
+left: 11px;
+transition: 0.5s
 }
 
 .inputbox i {
-    position: absolute;
-    top: 13px;
-    right: 8px;
-    transition: 0.5s;
-    color: #3F51B5
+position: absolute;
+top: 13px;
+right: 8px;
+transition: 0.5s;
+color: #3F51B5
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0
+-webkit-appearance: none;
+margin: 0
 }
 
 .inputbox input:focus~span {
-    transform: translateX(-0px) translateY(-15px);
-    font-size: 12px
+transform: translateX(-0px) translateY(-15px);
+font-size: 12px
 }
 
 .inputbox input:valid~span {
-    transform: translateX(-0px) translateY(-15px);
-    font-size: 12px
+transform: translateX(-0px) translateY(-15px);
+font-size: 12px
 }
 
 .pay button {
-    height: 47px;
-    border-radius: 37px
+height: 47px;
+border-radius: 37px
 }
 
 .p-Disclaimer{
-    font-size: 14px;
+font-size: 14px;
 }
 
-  -----modal css end -----------
-  **/__ Image URL for Credit Card and Paypal __/**
-  
-  paypal: https://i.imgur.com/yK7EDD1.png
-  creditCard: https://i.imgur.com/sB4jftM.png
+-----modal css end -----------
+**/** Image URL for Credit Card and Paypal **/**
+
+paypal: https://i.imgur.com/yK7EDD1.png
+creditCard: https://i.imgur.com/sB4jftM.png
 
 ## 4. All Texts for Blog Page
 
@@ -774,7 +772,7 @@ className: "pinterest",
 
 const subTitle = "Get in touch with us";
 const title = "We're Always Eager To Hear From You!";
-const conSubTitle = "Get in touch with Contact us";
+const conSubTitle = "Get in touch with us";
 const conTitle =
 "Fill The Form Below So We Can Get To Know You And Your Needs Better.";
 const btnText = "Send our Message";
@@ -838,10 +836,9 @@ desc: 'Distinctively provide acces mutfuncto users whereas communicate leveraged
 },
 ]
 
-
 ## 7. anonymous
 
-__/ *.env.local */__
+**/ _.env.local _/**
 
 VITE_APIKEY=
 VITE_AUTHDOMAIN=
