@@ -11,6 +11,9 @@ import About from "./about/About.jsx";
 import SingleProduct from "./shop/SingleProduct.jsx";
 import CartPage from "./shop/CartPage.jsx";
 import SingleBlog from "./blog/SingleBlog.jsx"; // Import SingleBlog component
+import AuthProvider from "./context/AuthProvider.jsx";
+import Login from "./components/Login.jsx";
+import PrivateRoute from "./privateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +42,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/cart",
-        element: <CartPage />,
+        element: (
+          <PrivateRoute>
+            <CartPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/contact",
@@ -51,8 +58,14 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/login",
+    element: <Login />,
+  },
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <AuthProvider>
+    <RouterProvider router={router} />
+  </AuthProvider>
 );

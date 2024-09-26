@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../assets/images/logo/logo.png";
+import { AuthContent } from "../context/AuthProvider";
 
 function NavItem() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const { user } = useContext(AuthContent);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
