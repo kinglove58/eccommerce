@@ -1,14 +1,24 @@
-import { signInWithPopup } from "firebase/auth";
+import {
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged,
+} from "firebase/auth";
+
 import { createContext, useState, useEffect } from "react";
-import { auth, provider } from "../firebase/firebase.config";
-import { onAuthStateChanged } from "firebase/auth";
+import {
+  auth,
+  googleProvider,
+  facebookProvider,
+  twitterProvider,
+} from "../firebase/firebase.config";
 
 export const AuthContent = createContext();
 
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const createUser = (email, password) => {
@@ -16,10 +26,9 @@ function AuthProvider({ children }) {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  /* create user using email */
   const signUpWithEmail = () => {
     setLoading(true);
-    return signInWithPopup(auth, provider);
+    return signInWithPopup(auth, googleProvider);
   };
 
   const login = (email, password) => {
@@ -31,7 +40,21 @@ function AuthProvider({ children }) {
     return signOut(auth);
   };
 
-  /* user is available or not*/
+  const signInWithGoogle = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const signInWithFacebook = () => {
+    setLoading(true);
+    return signInWithPopup(auth, facebookProvider);
+  };
+
+  const signInWithTwitter = () => {
+    setLoading(true);
+    return signInWithPopup(auth, twitterProvider);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -53,6 +76,9 @@ function AuthProvider({ children }) {
     signUpWithEmail,
     login,
     logOut,
+    signInWithGoogle,
+    signInWithFacebook,
+    signInWithTwitter,
     loading,
     isAuthenticated,
   };
