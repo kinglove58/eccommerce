@@ -3,13 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContent } from "../context/AuthProvider";
-import { signInWithPopup } from "firebase/auth";
-import {
-  auth,
-  facebookProvider,
-  googleProvider,
-  twitterProvider,
-} from "../firebase/firebase.config";
+import UserProfile from "./UserProfile";
 
 const socialList = [
   {
@@ -38,7 +32,13 @@ function Login() {
   const from = location.state?.from?.pathname || "/";
 
   const [errorMessage, setErrorMessage] = useState("");
-  const { signUpWithEmail, login } = useContext(AuthContent);
+  const {
+    login,
+    signInWithGoogle,
+    signInWithFacebook,
+    signInWithTwitter,
+    isAuthenticated,
+  } = useContext(AuthContent);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -56,20 +56,8 @@ function Login() {
       });
   };
 
-  const handleRegister = () => {
-    signUpWithEmail()
-      .then((res) => {
-        const user = res.user;
-        alert("Login successful");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      });
-  };
-
   const handleFacebookLogin = () => {
-    signInWithPopup(auth, facebookProvider)
+    signInWithFacebook()
       .then((result) => {
         const user = result.user;
         alert("Login successful");
@@ -81,7 +69,7 @@ function Login() {
   };
 
   const handleGoogleLogin = () => {
-    signInWithPopup(auth, googleProvider)
+    signInWithGoogle()
       .then((result) => {
         const user = result.user;
         alert("Login successful");
@@ -93,7 +81,7 @@ function Login() {
   };
 
   const handleTwitterLogin = () => {
-    signInWithPopup(auth, twitterProvider)
+    signInWithTwitter()
       .then((result) => {
         const user = result.user;
         alert("Login successful");
@@ -108,6 +96,7 @@ function Login() {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <h1 className="text-2xl font-bold text-center">Login</h1>
+
         <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -146,7 +135,7 @@ function Login() {
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 text-white bg-orange-600 rounded-md hover:bg-orange-700 focus:outline-none focus:ring focus:ring-blue-300"
+            className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-300"
           >
             Login
           </button>
@@ -154,10 +143,11 @@ function Login() {
             <p className="mt-2 text-sm text-red-600">{errorMessage}</p>
           )}
         </form>
+
         <div className="text-center">
           <p>
             Don't have an account?{" "}
-            <Link to="/signup" className="text-orange-600 hover:underline">
+            <Link to="/signup" className="text-blue-600 hover:underline">
               Sign up
             </Link>
           </p>

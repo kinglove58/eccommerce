@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../assets/images/logo/logo.png";
 import { AuthContent } from "../context/AuthProvider";
+import UserProfile from "./UserProfile";
 
 function NavItem() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,8 @@ function NavItem() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const { isAuthenticated, logout } = useContext(AuthContent);
 
   return (
     <header
@@ -61,22 +64,28 @@ function NavItem() {
               </li>
             ))}
           </ul>
-          <div className="flex flex-col md:flex-row md:space-x-4 mt-4 md:mt-0 w-full md:w-auto md:ml-5">
-            <Link
-              to="/signup"
-              className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 text-center mb-2 md:mb-0 "
-              onClick={() => setIsOpen(false)}
-            >
-              Create Account
-            </Link>
-            <Link
-              to="/login"
-              className="border border-gray-800 text-gray-800 px-4 py-2 rounded hover:bg-gray-200 hover:scale-105 text-center"
-              onClick={() => setIsOpen(false)}
-            >
-              Log in
-            </Link>
-          </div>
+          {isAuthenticated ? (
+            <div className="ml-4">
+              <UserProfile />
+            </div>
+          ) : (
+            <div className="flex flex-col md:flex-row md:space-x-4 mt-4 md:mt-0 w-full md:w-auto md:ml-5">
+              <Link
+                to="/signup"
+                className="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 text-center mb-2 md:mb-0 "
+                onClick={() => setIsOpen(false)}
+              >
+                Create Account
+              </Link>
+              <Link
+                to="/login"
+                className="border border-gray-800 text-gray-800 px-4 py-2 rounded hover:bg-gray-200 hover:scale-105 text-center"
+                onClick={() => setIsOpen(false)}
+              >
+                Log in
+              </Link>
+            </div>
+          )}
         </nav>
       </div>
     </header>

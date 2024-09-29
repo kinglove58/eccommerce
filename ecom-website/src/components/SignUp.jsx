@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContent } from "../context/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { useLocation } from "react-router-dom";
 
 const socialList = [
   {
@@ -36,6 +37,8 @@ function SignUp() {
     signInWithFacebook,
     signInWithTwitter,
   } = useContext(AuthContent);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -55,7 +58,7 @@ function SignUp() {
       .then((res) => {
         const user = res.user;
         alert("Sign up successful");
-        navigate("/", { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = "check again error";
@@ -68,7 +71,7 @@ function SignUp() {
       .then((result) => {
         const user = result.user;
         alert("Sign up successful");
-        navigate("/", { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = "facebook error message";
@@ -81,7 +84,7 @@ function SignUp() {
       .then((result) => {
         const user = result.user;
         alert("Sign up successful");
-        navigate("/", { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setErrorMessage(error.message);
@@ -93,7 +96,7 @@ function SignUp() {
       .then((result) => {
         const user = result.user;
         alert("Sign up successful");
-        navigate("/", { replace: true });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setErrorMessage(error.message);

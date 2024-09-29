@@ -8,6 +8,7 @@ import {
   FacebookAuthProvider,
   TwitterAuthProvider,
 } from "firebase/auth";
+import { getStorage } from "firebase/storage"; // Import Firebase Storage
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -27,5 +28,13 @@ const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 const twitterProvider = new TwitterAuthProvider();
+const storage = getStorage(app); // Initialize Firebase Storage
 
-export { auth, googleProvider, app, facebookProvider, twitterProvider };
+export {
+  auth,
+  googleProvider,
+  app,
+  facebookProvider,
+  twitterProvider,
+  storage,
+};

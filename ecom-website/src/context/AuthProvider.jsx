@@ -4,6 +4,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  updateProfile,
 } from "firebase/auth";
 
 import { createContext, useState, useEffect } from "react";
@@ -55,6 +56,20 @@ function AuthProvider({ children }) {
     return signInWithPopup(auth, twitterProvider);
   };
 
+  const updateUserProfile = (profileUpdates) => {
+    if (auth.currentUser) {
+      return updateProfile(auth.currentUser, profileUpdates)
+        .then(() => {
+          setUser({ ...auth.currentUser, ...profileUpdates });
+        })
+        .catch((error) => {
+          throw error;
+        });
+    } else {
+      throw new Error("No user is currently signed in.");
+    }
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -79,6 +94,7 @@ function AuthProvider({ children }) {
     signInWithGoogle,
     signInWithFacebook,
     signInWithTwitter,
+    updateUserProfile,
     loading,
     isAuthenticated,
   };
